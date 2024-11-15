@@ -1,7 +1,15 @@
 .carrusel-img {
 	width: 100%;
 	height: auto;
+	object-fit: cover;
+	border-radius: 10px;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 	behavior: smooth;
+	transition: transform 0.3s ease-in-out;
+}
+
+.carrusel-img:hover {
+	transform: scale(1.05);
 }
 
 .fade-out {
@@ -30,32 +38,108 @@
 	}
 }
 
-#inicioButtons{
+#inicioButtons {
 	display: flex;
 	flex-direction: row;
-	justify-content: space-around;
-	padding: 2em 0px;
+	justify-content: center;
+	gap: 2em;
+	padding: 2em 0;
 	width: 100%;
 	align-items: center;
 }
 
-
-#GoToDiscos{
+#GoToDiscos, #inicioRegistrarme {
 	display: flex;
-	color: black;
+	justify-content: center;
+	align-items: center;
+	color: white;
 	font-weight: bold;
 	font-size: 1.2em;
-	background-color: rgb(255, 156, 118);
-	border-radius: 5px;
-	padding: 2em 5em;
+	padding: 1em 3em;
+	border-radius: 8px;
+	text-decoration: none;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+	transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-#inicioRegistrarme{
-	display: flex;
-	color: black;
-	font-weight: bold;
-	font-size: 1.2em;
-	background-color: lightblue;
-	border-radius: 5px;
-	padding: 2em 5em;
+#GoToDiscos {
+	background-color: #ff7f50;
 }
+
+#GoToDiscos:hover {
+	background-color: #ff5722;
+	transform: translateY(-5px);
+}
+
+#inicioRegistrarme {
+	background-color: #1e90ff;
+}
+
+#inicioRegistrarme:hover {
+	background-color: #007bff;
+	transform: translateY(-5px);
+}
+
+header {
+	background: linear-gradient(90deg, #ff7f50, #1e90ff);
+	color: white;
+	padding: 1em 0;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+#logo-container {
+	display: flex;
+	align-items: center;
+	gap: 1em;
+}
+
+#logo {
+	height: 50px;
+	width: auto;
+}
+
+#main-title {
+	font-size: 1.5em;
+	font-weight: bold;
+}
+
+#bottom-header {
+	display: flex;
+	justify-content: center;
+	gap: 1em;
+	margin-top: 1em;
+}
+
+.tab {
+	text-decoration: none;
+	color: white;
+	padding: 0.5em 1.5em;
+	border-radius: 20px;
+	transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.tab:hover, .tab.selected {
+	background-color: rgba(255, 255, 255, 0.2);
+	color: #fff;
+}
+
+#logIn {
+	display: flex;
+	align-items: center;
+	gap: 1em;
+	cursor: pointer;
+}
+
+#userPfp {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	object-fit: cover;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+	transition: transform 0.3s ease;
+}
+
+#userPfp:hover {
+	transform: scale(1.1);
+}
+

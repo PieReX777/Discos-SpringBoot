@@ -1,0 +1,117 @@
+/* General Styles for Small Devices */
+body {
+	margin: 0;
+	padding: 0;
+	font-family: Arial, sans-serif;
+	box-sizing: border-box;
+}
+
+/* Responsive Images */
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+/* Media Queries */
+
+/* Mobile First Approach */
+
+/* Extra Small Devices (phones, less than 576px) */
+@media (max-width: 576px) {
+	header {
+		flex-wrap: wrap;
+		text-align: center;
+	}
+
+	#logo-container {
+		justify-content: center;
+		flex-direction: column;
+		gap: 0.5em;
+	}
+
+	#logo {
+		width: 70px;
+		height: auto;
+	}
+
+	#bottom-header {
+		flex-direction: column;
+		align-items: center;
+		gap: 1em;
+		margin-top: 1em;
+	}
+
+	.tab {
+		padding: 0.5em 1em;
+		font-size: 0.9em;
+	}
+
+	#inicioButtons {
+		flex-direction: column;
+		gap: 1em;
+	}
+
+	#GoToDiscos, #inicioRegistrarme {
+		width: 80%;
+		padding: 1em;
+		font-size: 1em;
+	}
+}
+
+/* Small Devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 768px) {
+	header {
+		flex-wrap: nowrap;
+	}
+
+	#bottom-header {
+		justify-content: space-around;
+	}
+
+	#inicioButtons {
+		flex-direction: row;
+		gap: 1.5em;
+	}
+
+	#GoToDiscos, #inicioRegistrarme {
+		width: auto;
+		padding: 1em 2em;
+		font-size: 1.1em;
+	}
+}
+
+/* Medium Devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 992px) {
+	header {
+		padding: 0.5em 1em;
+	}
+
+	#logo {
+		width: 100px;
+	}
+
+	#bottom-header {
+		justify-content: space-between;
+	}
+
+	#GoToDiscos, #inicioRegistrarme {
+		font-size: 1.2em;
+		padding: 1em 3em;
+	}
+}
+
+/* Large Devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+	header {
+		padding: 1em 2em;
+	}
+
+	#logo-container {
+		justify-content: flex-start;
+	}
+
+	#bottom-header {
+		justify-content: flex-start;
+		gap: 2em;
+	}
+}
