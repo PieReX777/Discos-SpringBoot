@@ -63,16 +63,16 @@
 }
 
 #GoToDiscos {
-	background-color: #ff7f50;
+	background-color: #fe0000;
 }
 
 #GoToDiscos:hover {
-	background-color: #ff5722;
+	background-color: #f72626f4;
 	transform: translateY(-5px);
 }
 
 #inicioRegistrarme {
-	background-color: #1e90ff;
+	background-color: #2600fc;
 }
 
 #inicioRegistrarme:hover {
@@ -81,7 +81,7 @@
 }
 
 header {
-	background: linear-gradient(90deg, #ff7f50, #1e90ff);
+	background: linear-gradient(90deg, #ff0000, #0a00c6);
 	color: white;
 	padding: 1em 0;
 	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
@@ -94,7 +94,7 @@ header {
 }
 
 #logo {
-	height: 50px;
+	height: 75px;
 	width: auto;
 }
 

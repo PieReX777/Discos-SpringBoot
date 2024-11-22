@@ -1,4 +1,31 @@
-const provincias = ["Álava", "Albacete", "Alicante", "Almería", "Asturias", "Ávila", "Badajoz", "Barcelona", "Burgos", "Cáceres", "Cádiz", "Cantabria", "Castellón", "Ciudad Real", "Córdoba", "Cuenca", "Girona", "Granada", "Guadalajara", "Guipúzcoa", "Huelva", "Huesca", "Islas Baleares", "Jaén", "A Coruña", "La Rioja", "Las Palmas", "León", "Lleida", "Lugo", "Madrid", "Málaga", "Murcia", "Navarra", "Ourense", "Palencia", "Pontevedra", "Salamanca", "Segovia", "Sevilla", "Soria", "Tarragona", "Santa Cruz de Tenerife", "Teruel", "Toledo", "Valencia", "Valladolid", "Vizcaya", "Zamora", "Zaragoza"];
+    // Array de provincias o departamentos de Perú
+    const provincias = [
+        "Amazonas",
+        "Áncash",
+        "Apurímac",
+        "Arequipa",
+        "Ayacucho",
+        "Cajamarca",
+        "Callao",
+        "Cusco",
+        "Huancavelica",
+        "Huánuco",
+        "Ica",
+        "Junín",
+        "La Libertad",
+        "Lambayeque",
+        "Lima",
+        "Loreto",
+        "Madre de Dios",
+        "Moquegua",
+        "Pasco",
+        "Piura",
+        "Puno",
+        "San Martín",
+        "Tacna",
+        "Tumbes",
+        "Ucayali"
+    ];
 
 let checkout_paso_zero = () => {
 	// mostrar al user un form donde mostrar la info del envÃ­o

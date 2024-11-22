@@ -1,72 +1,58 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="ISO-8859-1" />
-		<title>Admin - Listado discos</title>
-		<link rel="stylesheet" href="../css/admin/pedidos.css" />
-	</head>
-	<body>
-		<div th:insert="fragments/general.html :: menu"></div>
+<html lang="en">
+  <head>
+    <meta charset="ISO-8859-1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin - Listado de Pedidos</title>
 
-		<p>Listado de pedidos:</p>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-light">
+    <!-- Menú general -->
+    <div th:insert="fragments/general.html :: menu"></div>
 
-		<div id="order">
-			<div id="order_top">
-				<div style="grid-column: 1; grid-row: 1">
-					<div>
-						<p th:text="#{admin.idPedido}"></p>
-					</div>
-				</div>
-				<div style="grid-column: 2; grid-row: 1">
-					<div>
-						<p th:text="#{admin.direccion}"></p>
-					</div>
-				</div>
-				<div style="grid-column: 3; grid-row: 1">
-					<div>
-						<p th:text="#{admin.provincia}"></p>
-					</div>
-				</div>
-				<div style="grid-column: 4; grid-row: 1">
-					<div>
-						<p th:text="#{admin.tipoTarjeta}"></p>
-					</div>
-				</div>
-				<div style="grid-column: 5; grid-row: 1">
-					<div>
-						<p th:text="#{admin.estadoPedido}"></p>
-					</div>
-				</div>
-			</div>
+    <div class="container mt-5">
+      <h1 class="text-center mb-4">Listado de Pedidos</h1>
 
-			<div class="order-object" th:each="pedido : ${pedidos}">
-				<div style="grid-column: 1; grid-row: 1">
-					<p th:text="${pedido.id}"></p>
-				</div>
-				<div style="grid-column: 2; grid-row: 1">
-					<p th:text="${pedido.direccion}"></p>
-				</div>
-				<div style="grid-column: 3; grid-row: 1">
-					<p th:text="${pedido.provincia}"></p>
-				</div>
-				<div style="grid-column: 4; grid-row: 1">
-					<p th:text="${pedido.tipoTarjeta}"></p>
-				</div>
-				<div style="grid-column: 5; grid-row: 1">
-					<p th:text="${pedido.estado}"></p>
-				</div>
-				<a
-					th:href="@{${ 'verDetallesPedido?id=' + pedido.id }}"
-					th:text="#{admin.verDetalles}"
-				></a>
-			</div>
-		</div>
-	</body>
-	<script>
-		document.querySelectorAll(".order-object").forEach((e, i) => {
-			if (i % 2 == 0) {
-				e.style.backgroundColor = "#fdeeee";
-			}
-		});
-	</script>
+      <!-- Tabla de pedidos -->
+      <div class="table-responsive">
+        <table class="table table-striped table-hover align-middle">
+          <thead class="table-dark">
+            <tr>
+              <th scope="col" th:text="#{admin.idPedido}">ID Pedido</th>
+              <th scope="col" th:text="#{admin.direccion}">Dirección</th>
+              <th scope="col" th:text="#{admin.provincia}">Provincia</th>
+              <th scope="col" th:text="#{admin.tipoTarjeta}">Tipo de Tarjeta</th>
+              <th scope="col" th:text="#{admin.estadoPedido}">Estado</th>
+              <th scope="col">Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr th:each="pedido : ${pedidos}">
+              <td th:text="${pedido.id}">1</td>
+              <td th:text="${pedido.direccion}">Ejemplo dirección</td>
+              <td th:text="${pedido.provincia}">Ejemplo provincia</td>
+              <td th:text="${pedido.tipoTarjeta}">Visa</td>
+              <td th:text="${pedido.estado}">Pendiente</td>
+              <td>
+                <a
+                  th:href="@{${ 'verDetallesPedido?id=' + pedido.id }}"
+                  th:text="#{admin.verDetalles}"
+                  class="btn btn-sm btn-primary"
+                  >Ver detalles</a
+                >
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>

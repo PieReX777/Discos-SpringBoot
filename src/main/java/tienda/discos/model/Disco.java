@@ -36,8 +36,8 @@ public class Disco {
 	@Pattern(regexp = "\\d{4}$", message = "Se debe introducir una fecha valida")
 	private String ano;
 	@NotNull(message = "Debes insertar un precio")
-	@Min(value = 1, message = "el precio mínimo es un euro")
-	@Max(value = 250, message = "el precio maximo es 999€")
+	@Min(value = 1, message = "el precio mínimo es 1 sol")
+	@Max(value = 1000, message = "el precio maximo es 1000 soles")
 	private Double precio;
 
 	private boolean alta = true;

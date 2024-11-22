@@ -1,56 +1,52 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="ISO-8859-1" />
-		<title>Admin - Listado discos</title>
-		<link rel="stylesheet" href="../css/admin/users.css" />
-	</head>
-	<body>
-		<div th:insert="fragments/general.html :: menu"></div>
+<html lang="es">
+<head>
+    <meta charset="ISO-8859-1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin - Listado de Usuarios</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body class="bg-light">
+    <div th:insert="fragments/general.html :: menu"></div>
 
-		<p>Listado de usuarios:</p>
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">Listado de Usuarios</h2>
+        <div class="row g-4">
+            <!-- Tarjetas de usuarios -->
+            <div class="col-12 col-sm-6 col-lg-4" th:each="usuario : ${usuarios}">
+                <div class="card shadow-sm h-100">
+                    <!-- Imagen del usuario -->
+                    <img
+                        th:src="@{${ '../mostrar_imagen_user?id=' + usuario.id }}"
+                        class="card-img-top rounded-circle mx-auto mt-3"
+                        style="width: 8rem; height: 8rem; object-fit: cover;"
+                        alt="Imagen de Usuario"
+                    />
 
-		<div th:each="usuario : ${usuarios}">
-			<div id="profile-main">
-				<div id="user-img">
-					<img
-						style="width: 10em; border-radius: 50%"
-						th:src="@{${ '../mostrar_imagen_user?id=' + usuario.id }}"
-					/>
-				</div>
-				<div id="profile-data">
-					<div id="profile-info">
-						<div id="profile-element">
-							<span th:text="#{admin.nombre}"></span>
-							<p th:text="${usuario.nombre}" id="userName" />
-						</div>
-						<div id="profile-element">
-							<span th:text="#{admin.pass}"></span>
-							<p th:text="${usuario.pass}" id="pass"></p>
-						</div>
-						<div id="profile-element">
-							<span th:text="#{admin.telefono}"></span>
-							<p th:text="${usuario.tel}" id="tel"></p>
-						</div>
-						<div id="profile-element">
-							<span th:text="#{admin.pais}"></span>
-							<p th:text="${usuario.pais}" id="pais"></p>
-						</div>
-						<div id="profile-element">
-							<span th:text="#{admin.email}"></span>
-							<p th:text="${usuario.email}"></p>
-						</div>
-					</div>
-					<a
-						th:href="@{${'editarUsuario?id='+ usuario.id}}"
-						id="updateUserDataAdmin"
-						type="button"
-						value="Actualizar usuario"
-					>
-						Editar usuario
-					</a>
-				</div>
-			</div>
-		</div>
-	</body>
+                    <!-- Información del usuario -->
+                    <div class="card-body text-center">
+                        <h5 class="card-title" th:text="${usuario.nombre}">Nombre del Usuario</h5>
+                        <p class="card-text mb-1"><strong>Teléfono:</strong> <span th:text="${usuario.tel}"></span></p>
+                        <p class="card-text mb-1"><strong>País:</strong> <span th:text="${usuario.pais}"></span></p>
+                        <p class="card-text mb-1"><strong>Email:</strong> <span th:text="${usuario.email}"></span></p>
+                    </div>
+
+                    <!-- Botón para editar -->
+                    <div class="card-footer text-center">
+                        <a
+                            th:href="@{${'editarUsuario?id=' + usuario.id}}"
+                            class="btn btn-primary btn-sm"
+                        >
+                            Editar Usuario
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>

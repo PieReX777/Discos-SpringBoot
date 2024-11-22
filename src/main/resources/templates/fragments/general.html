@@ -1,46 +1,53 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-	<head>
-		<meta charset="ISO-8859-1" />
-		<title>Insert title here</title>
-	</head>
-	<body>
-		<div th:fragment="menu">
-			<link rel="stylesheet" href="../css/admin/header.css">
-			<div>
-				<a href="../" th:text="#{admin.volverCliente}"></a>
-			</div>
-			<div>
-				<div id="menu-topContainer">
-					<div id="menu-title">
-						<div th:text="#{admin.tituloPrincipal}"></div>
-					</div>
-					<div id="menu-language">
-						<span th:text="#{admin.cambiaridoma}"></span>
-						<a href="?idioma=es">🇪🇸</a>
-						<a href="?idioma=en">🇬🇧</a>
-					</div>
-				</div>
-				<div id="menu-links">
-					<a
-						href="obtenerDiscos"
-						th:text="#{admin.gestionarDiscos}"
-					></a>
-					<a
-						href="obtenerGeneros"
-						th:text="#{admin.gestionarGeneros}"
-					></a>
-					<a
-						href="obtenerUsuarios"
-						th:text="#{admin.gestionarUsuarios}"
-					></a>
-					<a
-						href="obtenerPedidos"
-						th:text="#{admin.gestionarPedidos}"
-					></a>
-					<a href="../logoutAdmin" th:text="#{admin.logout}"></a>
-				</div>
-			</div>
-		</div>
-	</body>
+  <head>
+    <meta charset="ISO-8859-1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Interface</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/admin/header.css">
+  </head>
+  <body class="bg-light">
+
+    <!-- Menu Section -->
+    <div th:fragment="menu">
+      <div class="container-fluid bg-dark text-white p-3">
+        <div class="d-flex justify-content-between align-items-center">
+          <!-- Back to Client Link -->
+          <a href="../" class="btn btn-outline-light" th:text="#{admin.volverCliente}">Volver al Cliente</a>
+
+          <!-- Language Switcher -->
+          <div class="d-flex align-items-center">
+            <span th:text="#{admin.cambiaridoma}" class="me-2">Cambiar idioma:</span>
+            <div class="btn-group">
+              <a href="?idioma=es" class="btn btn-light">🇪🇸</a>
+              <a href="?idioma=en" class="btn btn-light">🇬🇧</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Menu Title -->
+        <div class="text-center my-3">
+          <h2 th:text="#{admin.tituloPrincipal}">Admin Panel</h2>
+        </div>
+        
+        <!-- Menu Links (Horizontal Layout) -->
+        <div class="d-flex justify-content-center flex-wrap">
+          <a href="obtenerDiscos" class="btn btn-outline-light mx-2" th:text="#{admin.gestionarDiscos}">Gestionar Discos</a>
+          <a href="obtenerGeneros" class="btn btn-outline-light mx-2" th:text="#{admin.gestionarGeneros}">Gestionar Géneros</a>
+          <a href="obtenerUsuarios" class="btn btn-outline-light mx-2" th:text="#{admin.gestionarUsuarios}">Gestionar Usuarios</a>
+          <a href="obtenerPedidos" class="btn btn-outline-light mx-2" th:text="#{admin.gestionarPedidos}">Gestionar Pedidos</a>
+          <a href="../logoutAdmin" class="btn btn-outline-danger mx-2" th:text="#{admin.logout}">Cerrar Sesión</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>

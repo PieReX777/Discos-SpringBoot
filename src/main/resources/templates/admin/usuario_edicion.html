@@ -1,68 +1,102 @@
 <!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Admin - Usuario editar</title>
-	</head>
-	<body>
-		<div th:insert="fragments/general.html :: menu"></div>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin - Usuario Editar</title>
 
-		Editar los datos del usuario:<br />
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-light">
+    <!-- Menú general -->
+    <div th:insert="fragments/general.html :: menu"></div>
 
-		<form
-			action="#"
-			th:action="guardarCambiosUsuario"
-			th:object="${usuarioEditar}"
-			method="post"
-			enctype="multipart/form-data"
-		>
-			<div id="profile-element">
-				<span th:text="#{admin.nombre}"></span>
-				<input
-					class="profile-input"
-					th:field="*{nombre}"
-					id="userName"
-				/>
-			</div>
-			<div id="profile-element">
-				<span th:text="#{admin.pass}"></span>
-				<input
-					class="profile-input"
-					th:field="*{pass}"
-					id="pass"
-				/>
-			</div>
-			<div id="profile-element">
-				<span>Telephone:</span>
-				<input
-					class="profile-input"
-					name="tel"
-					th:field="*{tel}"
-					id="tel"
-				/>
-			</div>
-			<div id="profile-element">
-				<span>Country:</span>
-				<input
-					class="profile-input"
-					name="pais"
-					th:field="*{pais}"
-					id="pais"
-				/>
-			</div>
-			<div id="profile-element">
-				<span th:text="#{admin.email}"></span>
-				<input
-					class="profile-input"
-					name="email"
-					th:field="*{email}"
-					id="email"
-				/>
-			</div>
-			<input type="hidden" th:field="*{id}" />
-			<input type="hidden" th:field="*{avatar}" />
-			<input type="submit" value="Guardar cambios del usuario" />
-		</form>
-	</body>
+    <div class="container my-5">
+      <h1 class="text-center mb-4">Editar Datos del Usuario</h1>
+
+      <!-- Formulario de edición de usuario -->
+      <form
+        action="#"
+        th:action="guardarCambiosUsuario"
+        th:object="${usuarioEditar}"
+        method="post"
+        enctype="multipart/form-data"
+        class="bg-white p-4 rounded shadow-sm"
+      >
+        <div class="mb-3">
+          <label for="userName" class="form-label"><strong th:text="#{admin.nombre}">Nombre</strong></label>
+          <input
+            type="text"
+            class="form-control"
+            th:field="*{nombre}"
+            id="userName"
+            required
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="pass" class="form-label"><strong th:text="#{admin.pass}">Contraseña</strong></label>
+          <input
+            type="password"
+            class="form-control"
+            th:field="*{pass}"
+            id="pass"
+            required
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="tel" class="form-label">Teléfono</label>
+          <input
+            type="tel"
+            class="form-control"
+            name="tel"
+            th:field="*{tel}"
+            id="tel"
+            required
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="pais" class="form-label">País</label>
+          <input
+            type="text"
+            class="form-control"
+            name="pais"
+            th:field="*{pais}"
+            id="pais"
+            required
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="email" class="form-label"><strong th:text="#{admin.email}">Correo Electrónico</strong></label>
+          <input
+            type="email"
+            class="form-control"
+            name="email"
+            th:field="*{email}"
+            id="email"
+            required
+          />
+        </div>
+
+        <!-- Campos ocultos -->
+        <input type="hidden" th:field="*{id}" />
+        <input type="hidden" th:field="*{avatar}" />
+
+        <!-- Botón para guardar cambios -->
+        <div class="text-center">
+          <button type="submit" class="btn btn-primary mt-3">Guardar Cambios</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>
